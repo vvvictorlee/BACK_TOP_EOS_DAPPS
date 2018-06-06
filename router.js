@@ -22,9 +22,20 @@ module.exports = function(app){
 	//get all user info
 	app.post('/get_all_users', json_encoding, Test.get_all_users)
 
+	app.post('/get_all_comments', json_encoding, Test.get_all_comments)
+
 	//save new post to db
 	app.post('/add_new_post', json_encoding, Test.add_new_post)
 
 	//save new user to db
 	app.post('/add_new_user', json_encoding, Test.add_new_user)
+
+	app.post('/add_new_vote', json_encoding, Test.add_new_vote)
+
+	app.post('/add_new_comvote', json_encoding, Test.add_new_comvote)
+
+	app.post('/add_new_comment', json_encoding, Test.add_new_comment)
+
+	app.post('/check_username', json_encoding, Test.check_username)
+
 }
