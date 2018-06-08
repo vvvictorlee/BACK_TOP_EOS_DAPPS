@@ -28,9 +28,9 @@ const port = process.env.PORT || 8888
 if (process.env.NODE_ENV === 'production') {
   // instantiate the SSL certificate necessary for HTTPS
   const options = {
-      ca: fs.readFileSync('./credentials/rentburrow_com.ca-bundle'),
-      key: fs.readFileSync('./credentials/rentburrow_com.key'),
-      cert: fs.readFileSync('./credentials/rentburrow_com.crt'),
+      ca: fs.readFileSync('./credentials/example_SSL_cert.ca-bundle'),
+      key: fs.readFileSync('./credentials/example_SSL_cert.key'),
+      cert: fs.readFileSync('./credentials/example_SSL_cert.crt'),
       requestCert: false,
       rejectUnauthorized: false
   }
