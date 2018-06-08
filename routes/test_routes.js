@@ -75,6 +75,26 @@ exports.add_new_vote = function(req, res, next) {
   })
 }
 
+exports.add_new_comvote = function(req, res, next) {
+  console.log('add_new_vote')
+  const info = req.body
+  const values = []
+  console.log(info)
+  const query_string = `INSERT INTO comvotes (comvote_id, user_id, comment_id)
+  VALUES ('${info.comvote_id}', '${info.user_id}', '${info.comment_id}')`
+  console.log(query_string)
+  query(query_string, values, (err, results) => {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Failed to get table posts')
+    }
+    console.log(results)
+    res.json({
+      message: 'Successfull retrieval',
+    })
+  })
+}
+
 exports.add_new_user = function(req, res, next) {
   console.log('asddsadasdasds')
   console.log(req.body)
@@ -103,10 +123,18 @@ exports.get_all_comments = function(req, res, next) {
   const query_string = `SELECT b.username,
                                a.post_id,
                                a.comment,
-                               a.created_at
+                               a.comment_id,
+                               a.created_at,
+                               COALESCE(c.num_comvotes, 0) AS num_comvotes
                                FROM comments a
                                INNER JOIN users b
                                ON a.user_id = b.user_id
+                               LEFT OUTER JOIN (
+                                 SELECT comment_id, COUNT(*) AS num_comvotes
+                                   FROM comvotes
+                                   GROUP BY comment_id
+                               ) c
+                               ON a.comment_id = c.comment_id
                         `
   console.log(query_string)
   query(query_string, values, (err, results) => {
@@ -151,28 +179,24 @@ exports.get_all_posts = function(req, res, next) {
   })
 }
 
-exports.add_new_comvote = function(req, res, next) {
-  console.log('add_new_vote')
+
+exports.get_all_comvotes = function(req, res, next) {
   const info = req.body
   const values = []
-  console.log(info)
-  const query_string = `INSERT INTO votes (comvote_id, user_id, comment_id)
-  VALUES ('${info.comvote_id}', '${info.user_id}', '${info.comment_id}')`
-  console.log(query_string)
+  const query_string = `SELECT comvotes.user_id, comvotes.comment_id FROM comvotes WHERE active = 'true'`
+
   query(query_string, values, (err, results) => {
     if (err) {
       console.log(err)
-      res.status(500).send('Failed to get table posts')
+      res.status(500).send('Failed to get table votes')
     }
     console.log(results)
     res.json({
       message: 'Successfull retrieval',
+      comvotes: results.rows,
     })
   })
 }
-
-
-
 
 exports.get_all_votes = function(req, res, next) {
   const info = req.body
