@@ -24,6 +24,8 @@ module.exports = function(app){
 
 	app.post('/get_all_comments', json_encoding, Test.get_all_comments)
 
+	app.post('/get_all_comvotes', json_encoding, Test.get_all_comvotes)
+
 	//save new post to db
 	app.post('/add_new_post', json_encoding, Test.add_new_post)
 
