@@ -1,6 +1,20 @@
 
+1. virtual private cloud for backend to database (security)
+-- 2. fix post calls with parameter using values array (security)
+3. integrate steem posting and upvoting (features)
+  - modify sql TABLE
+  - ( steemlink )checkbox must save true or false
+  - return steemlink backend
+  - steemlink in front end
+  - steem comment api when posting
+  - steem upvote api on the post
+-- 4. stay logged in by checking local storage upon opening app, then update props login (update)
+5. update vote on post in comments page (bug)
+6. fix website button on posts (bug)
+7. get SSL certificate (prod ready)
+8. downvote (feature)
 
-4. integrate steem login
+
 
 CREATE TABLE users (
   user_id TEXT PRIMARY KEY,
@@ -28,6 +42,7 @@ CREATE TABLE posts (
   state TEXT,
   url TEXT,
   summary TEXT,
+  steemlink BOOLEAN,
   description TEXT,
   created_at timestamp default current_timestamp,
   updated_at timestamp default current_timestamp,
