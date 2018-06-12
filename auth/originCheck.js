@@ -1,7 +1,7 @@
 exports.originCheck = function( req, res, next) {
   const origin = req.get('origin')
   if (process.env.NODE_ENV === 'production'){
-    if (origin && origin.indexOf('topeosdapps.firebaseapp.com') > -1) {
+    if (origin && origin.indexOf('topeosdapps.com') > -1) {
       next()
     }
     else {
