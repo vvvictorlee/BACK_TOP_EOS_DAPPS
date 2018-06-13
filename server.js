@@ -28,9 +28,9 @@ const port = process.env.PORT || 8888
 if (process.env.NODE_ENV === 'production') {
   // instantiate the SSL certificate necessary for HTTPS
   const options = {
-      ca: fs.readFileSync('./credentials/e5bf764db3695ffa.crt'),
+      ca: fs.readFileSync('./credentials/gd_bundle-g2-g1.crt'),
       key: fs.readFileSync('./credentials/topeosdapps.key'),
-      cert: fs.readFileSync('./credentials/gd_bundle-g2-g1.crt'),
+      cert: fs.readFileSync('./credentials/e5bf764db3695ffa.crt'),
       requestCert: false,
       rejectUnauthorized: false
   }
