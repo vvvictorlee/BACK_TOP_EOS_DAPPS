@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
   const options = {
       ca: fs.readFileSync('./credentials/gd.crt'),
       key: fs.readFileSync('./credentials/topeosdapps.key'),
-      cert: fs.readFileSync('./credentials/ac51.crt'),
+      cert: fs.readFileSync('./credentials/e1842.crt'),
       requestCert: false,
       rejectUnauthorized: false
   }
