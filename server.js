@@ -29,8 +29,8 @@ if (process.env.NODE_ENV === 'production') {
   // instantiate the SSL certificate necessary for HTTPS
   const options = {
       ca: fs.readFileSync('./credentials/gd_bundle-g2-g1.crt'),
-      key: fs.readFileSync('./credentials/example.key'),
-      cert: fs.readFileSync('./credentials/e2af2edb1516daed.crt'),
+      key: fs.readFileSync('./credentials/topeosdapps.key'),
+      cert: fs.readFileSync('./credentials/e5bf764db3695ffa.crt'),
       requestCert: false,
       rejectUnauthorized: false
   }
