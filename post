@@ -9,7 +9,7 @@
   - steem comment api when posting
   - steem upvote api on the post
 -- 4. stay logged in by checking local storage upon opening app, then update props login (update)
-5. update vote on post in comments page (bug)
+5. update vote on post in comments page (bug) => sort list of posts with selected posts id
 6. fix website button on posts (bug)
 7. get SSL certificate (prod ready)
 8. downvote (feature)
