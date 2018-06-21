@@ -171,7 +171,7 @@ exports.get_all_comments = function(req, res, next) {
 
 exports.get_all_posts = function(req, res, next) {
   const info = req.body
-  const query_string = `SELECT a.post_id, a.title, b.username, a.project_release, a.steemlink, a.description, a.summary, a.url, a.state, a.created_at, COALESCE(c.num_votes, 0) AS num_votes
+  const query_string = `SELECT a.post_id, a.title, b.username, a.project_release, a.steemlink, a.permlink, a.description, a.summary, a.url, a.state, a.created_at, COALESCE(c.num_votes, 0) AS num_votes
                           FROM posts a
                           INNER JOIN users b
                           ON a.user_id = b.user_id

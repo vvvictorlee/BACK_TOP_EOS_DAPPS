@@ -43,6 +43,7 @@ CREATE TABLE posts (
   url TEXT,
   summary TEXT,
   steemlink BOOLEAN,
+  permlink TEXT,
   description TEXT,
   created_at timestamp default current_timestamp,
   updated_at timestamp default current_timestamp,
