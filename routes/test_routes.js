@@ -56,11 +56,11 @@ exports.add_new_comment = function (req, res, next) {
 exports.add_new_post = function(req, res, next) {
   console.log('asddsadasdasds')
   const info = req.body
-  const values = [ info.post_id, info.user_id, info.title, info.project_release, info.description, info.summary, info.state, info.url, info.steemlink ]
+  const values = [ info.post_id, info.user_id, info.title, info.project_release, info.description, info.summary, info.state, info.url, info.steemlink, info.permlink ]
   console.log('pimpwagon')
   console.log(info)
-  const query_string = `INSERT INTO posts (post_id, user_id, title, project_release, description, summary, state, url, steemlink)
-  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`
+  const query_string = `INSERT INTO posts (post_id, user_id, title, project_release, description, summary, state, url, steemlink, permlink)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`
 
   console.log(query_string)
   query(query_string, values, (err, results) => {
